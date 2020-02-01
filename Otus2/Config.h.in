@@ -1,0 +1,5 @@
+// the configured options and settings for Tutorial
+#pragma once
+#cmakedefine VERSION_MAJ 0
+#cmakedefine VERSION_MIN 0
+#cmakedefine VERSION_PATCH 5
