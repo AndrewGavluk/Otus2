@@ -44,8 +44,9 @@ bool ip_pool_compare(const vect1String& First, const vect1String& Second)
 	return false;
 }
 
+template<typename Comparator>
 void show(vect2String ip_pool,
-	bool (*allowPrint)(const vect2String::const_iterator&, const uint8_t&, const uint8_t&),
+	Comparator allowPrint,
 	uint8_t firstNumb,
 	uint8_t secondNumb)
 {
@@ -66,15 +67,7 @@ void show(vect2String ip_pool,
 	}
 }
 
-bool firstOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb = 0)
-{
-	return std::stoi(iter[0][0]) == firstNumb;
-}
 
-bool firstTwoOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb)
-{
-	return ((std::stoi(iter[0][0]) == firstNumb) && (std::stoi(iter[0][1]) == secondNumb));
-}
 
 bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb = 0)
 {
@@ -83,6 +76,8 @@ bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNum
 		(std::stoi(iter[0][2]) == firstNumb) ||
 		(std::stoi(iter[0][3]) == firstNumb));
 }
+
+
 
 int main(int argc, char const* argv[])
 {
@@ -100,15 +95,35 @@ int main(int argc, char const* argv[])
 
 		std::sort(ip_pool.begin(), ip_pool.end(), ip_pool_compare);
 
-		auto constTrue = [](const vect2String::const_iterator&, const uint8_t&, const uint8_t&) {return true; };
+		auto constTrue = [](const vect2String::const_iterator& iter, 
+								const uint8_t& firstNumb, 
+								const uint8_t& secondNumb) 
+							{return true; };
 		show(ip_pool, constTrue, 0, 0);
 
 		uint8_t firstNumber = 1;
+		auto firstOketEql = [](const vect2String::const_iterator& iter, 
+									const uint8_t& firstNumb, 
+									const uint8_t& secondNumb) 
+								{return std::stoi(iter[0][0]) == firstNumb; };
 		show(ip_pool, firstOketEql, firstNumber, 0);
 
 		firstNumber = 46;
 		uint8_t secondNumber = 70;
+		auto firstTwoOketEql = [](const vect2String::const_iterator& iter,
+									const uint8_t& firstNumb,
+									const uint8_t& secondNumb)
+							{return  ((std::stoi(iter[0][0]) == firstNumb) && 
+										(std::stoi(iter[0][1]) == secondNumb));};
 		show(ip_pool, firstTwoOketEql, firstNumber, secondNumber);
+		
+		auto anyOketEql = [](const vect2String::const_iterator& iter,
+								const uint8_t& firstNumb,
+								const uint8_t& secondNumb)
+							{return ((std::stoi(iter[0][0]) == firstNumb) ||
+										(std::stoi(iter[0][1]) == firstNumb) ||
+										(std::stoi(iter[0][2]) == firstNumb) ||
+										(std::stoi(iter[0][3]) == firstNumb)); };
 		show(ip_pool, anyOketEql, firstNumber, 0);
 
 	}
