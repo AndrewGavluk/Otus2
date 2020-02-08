@@ -50,6 +50,7 @@ int main(int argc, char const* argv[])
 
 		auto constTrue = [](const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb) 
 							{
+								UNUSED(iter);
 								UNUSED(firstNumb);
 								UNUSED(secondNumb);
 								return true; 
