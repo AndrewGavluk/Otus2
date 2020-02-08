@@ -36,7 +36,12 @@ int main(int argc, char const* argv[])
 {
 	try
 	{
-		std::ifstream fin("Test.tsv");
+		std::string filename("Test.tsv");
+		if (argc >= 2)
+		{
+			std::string filename(argv[1]);
+		}
+		std::ifstream fin(filename);
 
 		vect2String ip_pool;
 
