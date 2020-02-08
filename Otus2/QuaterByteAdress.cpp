@@ -102,15 +102,15 @@ bool ip_pool_compare(const vect1String& First, const vect1String& Second)
 
 int versionPatch()
 {
-	return VERSION_PATCH;
+	return PROJECT_VERSION_PATCH;
 }
 
 int versionMin()
 {
-	return VERSION_MIN;
+	return PROJECT_VERSION_MINOR;
 }
 
 int versionMaj()
 {
-	return VERSION_MAJ;
+	return PROJECT_VERSION_MAJOR;
 }
