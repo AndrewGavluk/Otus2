@@ -12,6 +12,9 @@ void show(vect2String ip_pool,
 	uint8_t firstNumb,
 	uint8_t secondNumb)
 {
+	UNUSED(firstNumb);
+	UNUSED(secondNumb);
+
 	for (auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip)
 	{
 		if (allowPrint(ip, firstNumb, secondNumb))
