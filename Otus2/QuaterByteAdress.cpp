@@ -19,7 +19,7 @@ vect1String split(const std::string& str, char d)
 	return r;
 }
 
-bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb = 0)
+bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb)
 {
 	return ((std::stoi(iter[0][0]) == firstNumb) ||
 		(std::stoi(iter[0][1]) == firstNumb) ||
