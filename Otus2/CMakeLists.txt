@@ -24,8 +24,7 @@ add_executable(Otus1BoostTest BoostTest.cpp)
 # 4. add gtest
 add_executable(Otus1GoogleTest GoogleTest.cpp)
 
-#set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest Otus1GoogleTest PROPERTIES
-set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest PROPERTIES
+set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest Otus1GoogleTest PROPERTIES
     CXX_STANDARD 14 
 	CXX_STANDARD_REQUIRED ON
 )# 2. include lib
