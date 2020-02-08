@@ -1,5 +1,5 @@
 ﻿#include "QuaterByteAdress.hpp"
-#include "Config.h"
+
 
 
 vect1String split(const std::string& str, char d)
@@ -20,8 +20,6 @@ vect1String split(const std::string& str, char d)
 
 	return r;
 }
-
-
 
 template<typename Comparator>
 void show(vect2String ip_pool,

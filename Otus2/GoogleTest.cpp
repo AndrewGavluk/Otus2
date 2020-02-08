@@ -4,17 +4,10 @@
 TEST(test_01, basic_test_set)
 {
 	ASSERT_TRUE(versionPatch() > 0);
-}
-
-TEST(test_02, basic_test_set)
-{
 	ASSERT_TRUE(versionMin() >= 0);
-}
-
-TEST(test_03, basic_test_set)
-{
 	ASSERT_TRUE(versionMaj() >= 0);
 }
+
 
 int main(int argc, char** argv) {
 	testing::InitGoogleTest(&argc, argv);

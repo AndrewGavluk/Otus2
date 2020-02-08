@@ -2,7 +2,10 @@
 
 #include <cstdint>
 #include <iostream>
+#include <string>
 #include <vector>
+
+#include "Config.h"
 
 const int numbers_in_string = 4;
 
