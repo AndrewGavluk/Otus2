@@ -6,7 +6,7 @@
 
 // default value
 #ifndef PROJECT_VERSION_MAJOR
-#define PROJECT_VERSION_MAJOR 1
+#define PROJECT_VERSION_MAJOR 0
 #endif
 
 #ifndef PROJECT_VERSION_MINOR
