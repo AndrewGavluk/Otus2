@@ -4,8 +4,28 @@
 
 #include "QuaterByteAdress.hpp"
 
-
-
+template<typename Comparator>
+void show(vect2String ip_pool,
+	Comparator allowPrint,
+	uint8_t firstNumb,
+	uint8_t secondNumb)
+{
+	for (auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip)
+	{
+		if (allowPrint(ip, firstNumb, secondNumb))
+		{
+			for (auto ip_part = ip->cbegin(); ip_part != ip->cend(); ++ip_part)
+			{
+				if (ip_part != ip->cbegin())
+				{
+					std::cout << ".";
+				}
+				std::cout << *ip_part;
+			}
+			std::cout << std::endl;
+		}
+	}
+}
 
 int main(int argc, char const* argv[])
 {

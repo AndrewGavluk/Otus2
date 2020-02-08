@@ -3,7 +3,7 @@
 
 
 if($ENV{TRAVIS_BUILD_NUMBER})
- project(02_homework VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER}).0
+ project(02_homework VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
  project(02_homework VERSION 1.1.999)
 endif()

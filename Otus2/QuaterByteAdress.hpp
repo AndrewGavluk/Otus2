@@ -12,18 +12,11 @@ const int numbers_in_string = 4;
 typedef std::vector<std::string> vect1String;
 typedef std::vector<std::vector<std::string>> vect2String;
 
-int versionPatch();
 int versionMin();
 int versionMaj();
-
-
+int versionPatch();
 bool ip_pool_compare(const vect1String& First, const vect1String& Second);
 vect1String split(const std::string& str, char d);
-template<typename Comparator>
-void show(vect2String ip_pool,
-	Comparator allowPrint,
-	uint8_t firstNumb,
-	uint8_t secondNumb);
 
 enum MyEnum
 {

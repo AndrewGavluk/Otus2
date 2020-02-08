@@ -1,7 +1,5 @@
 ﻿#include "QuaterByteAdress.hpp"
 
-
-
 vect1String split(const std::string& str, char d)
 {
 	vect1String r;
@@ -21,31 +19,6 @@ vect1String split(const std::string& str, char d)
 	return r;
 }
 
-template<typename Comparator>
-void show(vect2String ip_pool,
-	Comparator allowPrint,
-	uint8_t firstNumb,
-	uint8_t secondNumb)
-{
-	for (auto ip = ip_pool.cbegin(); ip != ip_pool.cend(); ++ip)
-	{
-		if (allowPrint(ip, firstNumb, secondNumb))
-		{
-			for (auto ip_part = ip->cbegin(); ip_part != ip->cend(); ++ip_part)
-			{
-				if (ip_part != ip->cbegin())
-				{
-					std::cout << ".";
-				}
-				std::cout << *ip_part;
-			}
-			std::cout << std::endl;
-		}
-	}
-}
-
-
-
 bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNumb, const uint8_t& secondNumb = 0)
 {
 	return ((std::stoi(iter[0][0]) == firstNumb) ||
@@ -53,7 +26,6 @@ bool anyOketEql(const vect2String::const_iterator& iter, const uint8_t& firstNum
 		(std::stoi(iter[0][2]) == firstNumb) ||
 		(std::stoi(iter[0][3]) == firstNumb));
 }
-
 
 std::ostream& operator<< (std::ostream& out, const QuaterByteAdress& StringAdress)
 {
