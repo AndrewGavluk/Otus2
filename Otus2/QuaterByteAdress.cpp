@@ -71,7 +71,6 @@ bool ip_pool_compare(const vect1String& First, const vect1String& Second)
 	return false;
 }
 
-
 int versionPatch()
 {
 	return PROJECT_VERSION_PATCH;
