@@ -10,7 +10,7 @@ endif()
 
 # linking Boost unit test framework
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-find_package(GTest REQUIRED)
+#find_package(GTest REQUIRED)
 
 
 configure_file (Config.h.in Config.h)
@@ -22,16 +22,18 @@ add_library(QuaterByteAdress QuaterByteAdress.cpp)
 # 3. add test
 add_executable(Otus1BoostTest BoostTest.cpp)
 # 4. add gtest
-add_executable(Otus1GoogleTest GoogleTest.cpp)
+#add_executable(Otus1GoogleTest GoogleTest.cpp)
 
-set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest Otus1GoogleTest PROPERTIES
+#set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest Otus1GoogleTest PROPERTIES
+set_target_properties(OtusParser QuaterByteAdress Otus1BoostTest PROPERTIES
     CXX_STANDARD 14 
 	CXX_STANDARD_REQUIRED ON
 )# 2. include lib
 target_include_directories(QuaterByteAdress
 	PRIVATE "${CMAKE_BINARY_DIR}")
 # 3. add test
-set_target_properties(Otus1BoostTest Otus1GoogleTest 
+#set_target_properties(Otus1BoostTest Otus1GoogleTest 
+set_target_properties(Otus1BoostTest 
 	PROPERTIES 
 	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
@@ -48,19 +50,19 @@ target_link_libraries(Otus1BoostTest
 )
 
 # 4 . gtest 
-target_link_libraries(Otus1GoogleTest ${GTEST_LIBRARIES} QuaterByteAdress)
+#target_link_libraries(Otus1GoogleTest ${GTEST_LIBRARIES} QuaterByteAdress)
 
 # set target compile options
 if (MSVC)
 	target_compile_options(OtusParser		PRIVATE /W4)
 	target_compile_options(QuaterByteAdress PRIVATE /W4)
 	target_compile_options(Otus1BoostTest	PRIVATE /W4)
-	target_compile_options(Otus1GoogleTest	PRIVATE /W4)
+#	target_compile_options(Otus1GoogleTest	PRIVATE /W4)
 	else ()  
-	target_compile_options(OtusParser			PRIVATE -Wall -Wextra -pedantic -Werror)
+	target_compile_options(OtusParser		PRIVATE -Wall -Wextra -pedantic -Werror)
 	target_compile_options(QuaterByteAdress	PRIVATE -Wall -Wextra -pedantic -Werror)
 	target_compile_options(Otus1BoostTest	PRIVATE -Wall -Wextra -pedantic -Werror)
-	target_compile_options(Otus1GoogleTest	PRIVATE -Wall -Wextra -pedantic -Werror)
+#	target_compile_options(Otus1GoogleTest	PRIVATE -Wall -Wextra -pedantic -Werror)
 endif()
 
 install(TARGETS OtusParser RUNTIME DESTINATION bin)
@@ -75,5 +77,6 @@ set(CPACK_PACKAGE_CONTACT gavl.andr96@gmail.com)
 include(CPack)
 enable_testing()
 
-# 3. add test
+# 3. add 
+add_test(Otus1BoostTest Otus1BoostTest)
  #add_test(Otus1BoostTest Otus1BoostTest)
