@@ -5,16 +5,17 @@
 #include <string>
 #include <vector>
 
-#include "Config.h"
+// #include "Config.h"
 
 const int numbers_in_string = 4;
 
 typedef std::vector<std::string> vect1String;
 typedef std::vector<std::vector<std::string>> vect2String;
-
+/*
 int versionMin();
 int versionMaj();
 int versionPatch();
+*/
 bool ip_pool_compare(const vect1String& First, const vect1String& Second);
 vect1String split(const std::string& str, char d);
 

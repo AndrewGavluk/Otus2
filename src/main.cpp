@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "QuaterByteAdress.hpp"
+#include "../lib/QuaterByteAddress.h"
 
 #define UNUSED(expr) do { (void)(expr); } while (0)
 
@@ -94,6 +94,7 @@ int main(int argc, char const* argv[])
 	catch (const std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	return 0;

@@ -1,4 +1,4 @@
-﻿#include "QuaterByteAdress.hpp"
+﻿#include "QuaterByteAddress.h"
 
 vect1String split(const std::string& str, char d)
 {
@@ -62,7 +62,7 @@ bool ip_pool_compare(const vect1String& First, const vect1String& Second)
 
 	return false;
 }
-
+/*
 int versionPatch()
 {
 	return PROJECT_VERSION_PATCH;
@@ -76,4 +76,4 @@ int versionMin()
 int versionMaj()
 {
 	return PROJECT_VERSION_MAJOR;
-}
+}*/
