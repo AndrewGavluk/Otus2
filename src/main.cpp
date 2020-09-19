@@ -23,10 +23,10 @@ void filter(std::vector<Ip4Okets> AdressList, std::function<bool (Ip4Okets&)> pr
 
 int main(int argc, char const* argv[])
 {
-	//UNUSED (argc);
+	UNUSED (argc);
 	try
 	{	
-		std::ifstream fin(( argc > 2) ? argv[1] : "../test/Test.tsv");
+		std::ifstream fin(argv[1]);
 		std::vector<Ip4Okets> AdressList;
 		for (std::string line; std::getline(fin, line); AdressList.emplace_back(std::ref(line)));
 		std::sort(AdressList.rbegin(), AdressList.rend());
