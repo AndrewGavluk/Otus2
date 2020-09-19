@@ -7,25 +7,24 @@
 
 
 // #include "Config.h"
-struct QuaterByteAdress;
+struct Ip4Okets;
 
-constexpr int numbers_in_ip4address = 4;
-constexpr int OKET_SIZE_IN_BITS = 8;
-constexpr int OKET4_SIZE = OKET_SIZE_IN_BITS * numbers_in_ip4address;
-enum OKET_SIZE{
-	OKET0_SIZE = 0,
-	OKET1_SIZE = OKET_SIZE_IN_BITS,
-	OKET2_SIZE = OKET_SIZE_IN_BITS*2,
-	OKET3_SIZE = OKET_SIZE_IN_BITS*3
-};
+constexpr uint8_t numbers_in_ip4address = 4;
+constexpr uint8_t OKET_SIZE_IN_BITS = 8;
+constexpr uint8_t OKET4_SIZE = OKET_SIZE_IN_BITS * numbers_in_ip4address;
+constexpr uint8_t	OKET0_SIZE = 0;
+constexpr uint8_t	OKET1_SIZE = OKET_SIZE_IN_BITS;
+constexpr uint8_t	OKET2_SIZE = OKET_SIZE_IN_BITS * 2;
+constexpr uint8_t	OKET3_SIZE = OKET_SIZE_IN_BITS * 3;
 
-struct QuaterByteAdress
+
+struct Ip4Okets
 {
-	QuaterByteAdress(std::string);
-	friend std::ostream& operator<< (std::ostream& out, const QuaterByteAdress& point);
-	bool operator  < (QuaterByteAdress const& b);
+	Ip4Okets(const std::string &);
+	friend std::ostream& operator<< (std::ostream& out, const Ip4Okets& point);
+	bool operator  < (Ip4Okets const& b);
 
-	bool check_mask (uint8_t mask, OKET_SIZE shift);
+	bool check_mask (const uint8_t& mask, const uint8_t& shift);
 
 	uint32_t ip4_adress;
 };

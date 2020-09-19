@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE Otus1BoostTest
 
-#include "QuaterByteAdress.hpp"
+#include "../../lib/ipOket.h"
 #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_SUITE(Otus1BoostTest)

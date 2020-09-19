@@ -1,12 +1,13 @@
 ﻿#include <iostream>
 #include <cstdint>
+#include <cctype>
 #include <vector>
 #include <string>
 #include <cmath>
 #include "ipOket.h"
 
 
-std::ostream& operator<< (std::ostream& out, const QuaterByteAdress& StringAdress)
+std::ostream& operator<< (std::ostream& out, const Ip4Okets& StringAdress)
 {
 
 	out << (StringAdress.ip4_adress >> OKET3_SIZE) << '.';
@@ -17,35 +18,38 @@ std::ostream& operator<< (std::ostream& out, const QuaterByteAdress& StringAdres
 	return out;
 }
 
-QuaterByteAdress::QuaterByteAdress(std::string in)
+Ip4Okets::Ip4Okets(const std::string & in)
 {
 	ip4_adress = 0;
 
 	// reading oket by oket
 	// i - oket iterator
 	// j - char iterator
-	for (uint8_t i = 0, j=0, buff=0; i < numbers_in_ip4address; ++i)
-		if (in[j]== '.' || in[j]=='\t' || in[j] == '\n')
+	for (uint8_t i = 0, buff = 0; true; ++i)
+		if (in[i] == '.' || in[i] == '\t' || in[i] == '\n')
 		{
 			ip4_adress = ip4_adress << OKET_SIZE_IN_BITS;
 			ip4_adress += buff;
 			buff = 0;
-			if (in[j]=='\t' || in[j] == '\n')
+			if (in[i] == '\t' || in[i] == '\n')
 				break;
 		}
 		else
-			if (std::isdigit(in[j]))
-				buff += in[j] - '0';
+			if (std::isdigit(in[i]))
+			{
+				buff *= 10;
+				buff += in[i] - '0';
+			}
 			else
 				std::cerr << "BitAddress.cpp(43), undef symbol while parsing";
 }
 
-bool QuaterByteAdress::operator < (QuaterByteAdress const& other)
+bool Ip4Okets::operator < (Ip4Okets const& other)
 {
 	return ip4_adress < other.ip4_adress;
 }
 
-bool QuaterByteAdress::check_mask(uint8_t mask, OKET_SIZE shift)
+bool Ip4Okets::check_mask(const uint8_t & mask, const uint8_t & shift)
 {
-	return mask==((ip4_adress << (OKET3_SIZE-shift)) >> (OKET3_SIZE-shift));
+	return mask==((ip4_adress << (OKET3_SIZE-shift)) >> (OKET3_SIZE));
 }
