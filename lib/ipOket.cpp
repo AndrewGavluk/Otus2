@@ -44,9 +44,9 @@ Ip4Okets::Ip4Okets(const std::string & in)
 				std::cerr << "BitAddress.cpp(43), undef symbol while parsing";
 }
 
-bool Ip4Okets::operator < (Ip4Okets const& other)
+bool operator < (Ip4Okets const& a, Ip4Okets const& b)
 {
-	return ip4_adress < other.ip4_adress;
+	return a.ip4_adress < b.ip4_adress;
 }
 
 bool Ip4Okets::check_mask(const uint8_t & mask, const uint8_t & shift)

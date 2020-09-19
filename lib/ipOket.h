@@ -22,7 +22,7 @@ struct Ip4Okets
 {
 	Ip4Okets(const std::string &);
 	friend std::ostream& operator<< (std::ostream& out, const Ip4Okets& point);
-	bool operator  < (Ip4Okets const& b);
+	friend bool operator < (Ip4Okets const& a, Ip4Okets const& b);
 
 	bool check_mask (const uint8_t& mask, const uint8_t& shift);
 
