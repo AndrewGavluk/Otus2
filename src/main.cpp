@@ -32,10 +32,10 @@ int main(int argc, char const* argv[])
 		std::sort(AdressList.rbegin(), AdressList.rend());
 		show(AdressList);
 		
-		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(1, OKET3_SIZE);});
-		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(46, OKET3_SIZE) && i.check_mask(70, OKET2_SIZE); });
-		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(46, OKET3_SIZE) || i.check_mask(46, OKET2_SIZE) 
-														|| i.check_mask(46, OKET1_SIZE) || i.check_mask(46, OKET0_SIZE); });
+		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(1, OKET3);});
+		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(46, OKET3) && i.check_mask(70, OKET2); });
+		filter(AdressList, [](Ip4Okets& i) { return i.check_mask(46, OKET3) || i.check_mask(46, OKET2) 
+														|| i.check_mask(46, OKET1) || i.check_mask(46, OKET0); });
 	}
 	catch (const std::exception & e)
 	{
