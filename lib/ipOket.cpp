@@ -22,9 +22,6 @@ Ip4Okets::Ip4Okets(const std::string & in)
 {
 	ip4_address = 0;
 	uint8_t size(in.size());
-	// reading oket by oket
-	// i - oket iterator
-	// j - char iterator
 	for (uint8_t i = 0, buff = 0; i<=size; ++i)
 		if (in[i] == '.' || in[i] == '\t' || in[i] == '\n' || in[i] == '\0')
 		{
