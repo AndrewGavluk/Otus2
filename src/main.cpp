@@ -24,11 +24,12 @@ void filter(std::vector<Ip4Okets> AdressList, std::function<bool (Ip4Okets&)> pr
 int main(int argc, char const* argv[])
 {
 	UNUSED (argc);
+	UNUSED (argv);
 	try
 	{	
-		std::ifstream fin(argv[1]);
+		//std::ifstream fin(argv[1]);
 		std::vector<Ip4Okets> AdressList;
-		for (std::string line; std::getline(fin, line); AdressList.emplace_back(std::ref(line)));
+		for (std::string line; std::getline(std::cin, line); AdressList.emplace_back(std::ref(line)));
 		std::sort(AdressList.rbegin(), AdressList.rend());
 		show(AdressList);
 		
