@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include <cstdint>
-#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -12,10 +11,10 @@ struct Ip4Okets;
 constexpr uint8_t numbers_in_ip4address = 4;
 constexpr uint8_t OKET_SIZE_IN_BITS = 8;
 constexpr uint8_t OKET4_SIZE = OKET_SIZE_IN_BITS * numbers_in_ip4address;
-constexpr uint8_t	OKET0 = 0;
-constexpr uint8_t	OKET1 = OKET_SIZE_IN_BITS;
-constexpr uint8_t	OKET2 = OKET_SIZE_IN_BITS * 2;
-constexpr uint8_t	OKET3 = OKET_SIZE_IN_BITS * 3;
+constexpr uint8_t OKET0 = 0;
+constexpr uint8_t OKET1 = OKET_SIZE_IN_BITS;
+constexpr uint8_t OKET2 = OKET_SIZE_IN_BITS * 2;
+constexpr uint8_t OKET3 = OKET_SIZE_IN_BITS * 3;
 
 
 struct Ip4Okets

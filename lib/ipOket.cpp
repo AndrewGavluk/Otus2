@@ -1,11 +1,4 @@
-﻿#include <iostream>
-#include <cstdint>
-#include <cctype>
-#include <vector>
-#include <string>
-#include <cmath>
-#include "ipOket.h"
-
+﻿#include "ipOket.h"
 
 std::ostream& operator<< (std::ostream& out, const Ip4Okets& StringAdress)
 {

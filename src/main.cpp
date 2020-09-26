@@ -1,7 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <fstream>
-#include <functional>
 #include <vector>
 
 #include "../lib/ipOket.h"
